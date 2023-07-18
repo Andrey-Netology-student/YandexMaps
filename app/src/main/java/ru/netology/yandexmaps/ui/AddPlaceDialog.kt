@@ -14,7 +14,8 @@ import ru.netology.yandexmaps.dto.Place
 
 class AddPlaceDialog : DialogFragment() {
 
-    companion object {
+    companion object { //Объект-компаньон для класса AddPlaceDialog.
+        //Ключи для сохранения и извлечения данных из аргументов фрагмента.
         private const val ID_KEY = "ID_KEY"
         private const val LAT_KEY = "LAT_KEY"
         private const val LONG_KEY = "LONG_KEY"

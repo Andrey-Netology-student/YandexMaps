@@ -67,11 +67,13 @@ class PlacesAdapter( //Класс адаптер для списка мест
         holder.bind(getItem(position))
     }
 
-    class PlacesViewHolder(
+    class PlacesViewHolder( //ViewHolder для элементов списка мест.
         private val binding: PlaceItemBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
+        //Для привязки данных места к элементам пользовательского интерфейса внутри ViewHolder.
         fun bind(place: Place) {
             with(binding) {
+//свойство title.text элемента пользовательского интерфейса устанавливается в значение name из объекта Place.
                 title.text = place.name
             }
         }
@@ -79,6 +81,7 @@ class PlacesAdapter( //Класс адаптер для списка мест
 
     object DiffCallback : DiffUtil.ItemCallback<Place>() {
         override fun areItemsTheSame(oldItem: Place, newItem: Place): Boolean =
+            //Если идентификаторы совпадают, метод возвращает true, в противном случае - false.
             oldItem.id == newItem.id
 
         override fun areContentsTheSame(oldItem: Place, newItem: Place): Boolean =

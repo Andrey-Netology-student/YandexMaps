@@ -7,10 +7,10 @@ import ru.netology.yandexmaps.dto.Place
 @Entity
 data class PlaceEntity constructor(
     @PrimaryKey(autoGenerate = true)
-    val id: Long,
-    val latitude: Double,
-    val longitude: Double,
-    val name: String,
+    val id: Long, //Идентификатор места
+    val latitude: Double, //Широта
+    val longitude: Double, //Долгота
+    val name: String, //Название места
 ) {
     companion object {
         fun fromDto(dto: Place): PlaceEntity = with(dto) {

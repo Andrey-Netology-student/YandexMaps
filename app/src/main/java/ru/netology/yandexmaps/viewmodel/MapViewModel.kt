@@ -8,11 +8,12 @@ import kotlinx.coroutines.launch
 import ru.netology.yandexmaps.db.PlaceDatabase
 import ru.netology.yandexmaps.dto.Place
 import ru.netology.yandexmaps.entity.PlaceEntity
-
+//Создается класс MapViewModel, который наследуется от AndroidViewModel и принимает параметр context типа Application.
 class MapViewModel(context: Application) : AndroidViewModel(context) {
-
+    //объект доступа к данным (DAO) для работы с базой данных PlaceDatabase.
     private val dao = PlaceDatabase.getInstance(context).placeDao
-    val places = dao.getAll().map {
+    val places = dao.getAll().map { //Содержит список мест
+//Преобразуется из списка объектов PlaceEntity в список объектов PlaceDto, вызывая функцию toDto() на каждом элементе списка.
         it.map(PlaceEntity::toDto)
     }
 
